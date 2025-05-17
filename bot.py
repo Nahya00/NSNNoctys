@@ -53,7 +53,8 @@ async def reply_temp(ctx, content, delay=5):
 def is_whitelisted(member):
     return (
         member.id in whitelisted_user_ids or
-        any(role.id in whitelisted_role_ids for role in member.roles)
+        any(role.id in whitelisted_role_ids for role in member.roles) or
+        member.id in AUTHORIZED_ADMINS
     )
 
 @bot.event
@@ -142,12 +143,12 @@ async def help_cmd(ctx):
         return
     msg = (
         "**🛠️ Commandes disponibles :**\n"
-        "- `$lock` / `$unlock` → activer/désactiver l'expulsion auto\n"
-        "- `$add @user` / `$del @user` → ajouter/retirer des utilisateurs whitelistés\n"
-        "- `$addrole @role` / `$delrole @role` → ajouter/retirer des rôles whitelistés\n"
-        "- `$wl` → voir les whitelistés\n"
-        "- `$locksalon` / `$unlocksalon` → verrouiller/déverrouiller le salon vocal\n"
-        "- `$help` → afficher cette aide"
+        "- `;lock` / `;unlock` → activer/désactiver l'expulsion auto\n"
+        "- `;add @user` / `;del @user` → ajouter/retirer des utilisateurs whitelistés\n"
+        "- `;addrole @role` / `;delrole @role` → ajouter/retirer des rôles whitelistés\n"
+        "- `;wl` → voir les whitelistés\n"
+        "- `;locksalon` / `;unlocksalon` → verrouiller/déverrouiller le salon vocal\n"
+        "- `;help` → afficher cette aide"
     )
     await reply_temp(ctx, msg, delay=10)
 
@@ -190,3 +191,4 @@ async def unlocksalon(ctx):
     await reply_temp(ctx, "🔓 Salon vocal déverrouillé.")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
+
