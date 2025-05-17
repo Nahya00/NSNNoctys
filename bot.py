@@ -142,12 +142,12 @@ async def help_cmd(ctx):
         return
     msg = (
         "**🛠️ Commandes disponibles :**\n"
-        "- `;lock` / `;unlock` → activer/désactiver l'expulsion auto\n"
-        "- `;add @user` / `;del @user` → ajouter/retirer des utilisateurs whitelistés\n"
-        "- `;addrole @role` / `;delrole @role` → ajouter/retirer des rôles whitelistés\n"
-        "- `;wl` → voir les whitelistés\n"
-        "- `;locksalon` / `;unlocksalon` → verrouiller/déverrouiller le salon vocal\n"
-        "- `;help` → afficher cette aide"
+        "- `$lock` / `$unlock` → activer/désactiver l'expulsion auto\n"
+        "- `$add @user` / `$del @user` → ajouter/retirer des utilisateurs whitelistés\n"
+        "- `$addrole @role` / `$delrole @role` → ajouter/retirer des rôles whitelistés\n"
+        "- `$wl` → voir les whitelistés\n"
+        "- `$locksalon` / `$unlocksalon` → verrouiller/déverrouiller le salon vocal\n"
+        "- `$help` → afficher cette aide"
     )
     await reply_temp(ctx, msg, delay=10)
 
